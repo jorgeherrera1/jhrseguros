@@ -2,11 +2,22 @@
   "name": "JHRSeguros",
   "version": "1.0.0",
   "description": "JHR Seguros",
-  "keywords" : ["JHR", "Seguros", "Autos", "Vida", "GMM", "Gastos Medicos", "Daños"],
+  "keywords": [
+    "JHR",
+    "Seguros",
+    "Autos",
+    "Vida",
+    "GMM",
+    "Gastos Medicos",
+    "Daños"
+  ],
   "author": "Jorge Herrera <jorge.herrera.cabrera@gmail.com>",
-  "license": "MIT",
   "private": true,
   "engines": {
     "node": ">=0.12"
+  },
+  "devDependencies": {
+    "bower": "^1.4.1",
+    "gulp": "^3.9.0"
   }
 }

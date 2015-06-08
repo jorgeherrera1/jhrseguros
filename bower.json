@@ -1,0 +1,16 @@
+{
+  "name": "jhrseguros",
+  "version": "1.0.0",
+  "homepage": "https://github.com/jorgeherrera1/jhrseguros",
+  "authors": [
+    "Jorge Herrera <jorge.herrera.cabrera@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

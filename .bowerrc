@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "postinstall": "gulp css-to-sass"
+  }
+}

@@ -1,3 +1,4 @@
 .idea
 node_modules
 bower_components
+app/styles/_normalize.scss

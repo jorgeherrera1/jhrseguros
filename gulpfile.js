@@ -15,8 +15,18 @@ var AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
+gulp.task('css-to-sass', function() {
+    return gulp.src(['bower_components/normalize.css/normalize.css'])
+        .pipe(gulpPlugins.cached('css-to-sass'))
+        .pipe(gulpPlugins.rename(function(file) {
+            file.basename = '_' + file.basename;
+            file.extname = '.scss';
+        }))
+        .pipe(gulp.dest('app/styles'));
+});
+
 // Compile and automatically prefix stylesheets
-gulp.task('styles', function() {
+gulp.task('sass', function() {
     return gulp.src([
         'app/styles/*.scss'])
         .pipe(gulpPlugins.sourcemaps.init())
@@ -28,8 +38,7 @@ gulp.task('styles', function() {
         .pipe(gulpPlugins.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe(gulpPlugins.sourcemaps.write())
         .pipe(gulp.dest('tmp/styles'))
-        // Concatenate and minify styles
-        .pipe(gulpPlugins.if('*.css', gulpPlugins.csso()))
+        .pipe(gulpPlugins.csso())
         .pipe(gulp.dest('dist/styles'))
         .pipe(gulpPlugins.size({title: 'styles'}));
 });

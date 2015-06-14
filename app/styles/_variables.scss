@@ -1,1 +1,18 @@
+// Breakpoints
+$small: 480px;
+
 $fonts: 'Roboto Condensed', Helvetica, sans-serif;
+$backgroundColor: #fff;
+
+// Mixins
+@mixin media-query($media-query) {
+  @if $media-query == small {
+    @media only screen and (max-width: $small) { @content; }
+  }
+
+  @if $media-query == large {
+    @media only screen and (min-width: $small + 1) { @content; }
+  }
+}
+
+@mixin large { @include media-query(large) { @content }; }

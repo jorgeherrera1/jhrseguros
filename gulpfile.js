@@ -1,7 +1,9 @@
 'use strict';
 
 var gulp = require('gulp'),
-    gulpPlugins = require('gulp-load-plugins')();
+    gulpPlugins = require('gulp-load-plugins')(),
+    del = require('del'),
+    runSequence = require('run-sequence');
 
 var AUTOPREFIXER_BROWSERS = [
     'ie >= 10',
@@ -15,9 +17,9 @@ var AUTOPREFIXER_BROWSERS = [
     'bb >= 10'
 ];
 
+// copy normalize.css and rename to sass
 gulp.task('css-to-sass', function() {
     return gulp.src(['bower_components/normalize.css/normalize.css'])
-        .pipe(gulpPlugins.cached('css-to-sass'))
         .pipe(gulpPlugins.rename(function(file) {
             file.basename = '_' + file.basename;
             file.extname = '.scss';
@@ -25,8 +27,37 @@ gulp.task('css-to-sass', function() {
         .pipe(gulp.dest('app/styles'));
 });
 
+// Optimize images
+gulp.task('images', function () {
+    return gulp.src('app/images/**/*')
+        .pipe(gulpPlugins.cache(gulpPlugins.imagemin({
+            progressive: true,
+            interlaced: true
+        })))
+        .pipe(gulp.dest('dist/images'))
+        .pipe(gulpPlugins.size({title: 'images'}));
+});
+
+// Copy web fonts to dist
+gulp.task('fonts', function () {
+    return gulp.src(['app/fonts/**'])
+        .pipe(gulp.dest('dist/fonts'))
+        .pipe(gulpPlugins.size({title: 'fonts'}));
+});
+
+// Copy all files at the root level (app)
+gulp.task('copy', function () {
+    return gulp.src([
+        'app/*'
+        //'!app/*.html'
+    ], {
+        dot: true
+    }).pipe(gulp.dest('dist'))
+        .pipe(gulpPlugins.size({title: 'copy'}));
+});
+
 // Compile and automatically prefix stylesheets
-gulp.task('sass', function() {
+gulp.task('styles', function() {
     return gulp.src([
         'app/styles/*.scss'])
         .pipe(gulpPlugins.sourcemaps.init())
@@ -41,4 +72,12 @@ gulp.task('sass', function() {
         .pipe(gulpPlugins.csso())
         .pipe(gulp.dest('dist/styles'))
         .pipe(gulpPlugins.size({title: 'styles'}));
+});
+
+// Clean output directory
+gulp.task('clean', del.bind(null, ['tmp', 'dist'], {dot: true}));
+
+// Build production files, the default task
+gulp.task('default', ['clean'], function (cb) {
+    runSequence('styles', ['images', 'fonts', 'copy'], cb);
 });

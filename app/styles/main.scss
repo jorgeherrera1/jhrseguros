@@ -1,6 +1,80 @@
 @import "normalize";
 @import "variables";
+@import "typography";
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
+  position: relative;
   font-family: $fonts;
+  font-weight: 300;
+  background-color: $backgroundColor;
+  box-sizing: border-box;
+  min-height: 100%;
+}
+
+.header-bar {
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #4285f4;
+  overflow: hidden;
+  z-index: 1;
+
+  button {
+    width: 60px;
+    height: 60px;
+    background-image: none;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: inline-block;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+    -webkit-tap-highlight-color: transparent;
+
+    img {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  button:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    outline: 0;
+  }
+
+  button:active {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+.header-bar-container {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 60px;
+  position: relative;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+@include large {
+  button.menu {
+    display: none;
+  }
 }

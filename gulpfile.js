@@ -48,8 +48,8 @@ gulp.task('fonts', function () {
 // Copy all files at the root level (app)
 gulp.task('copy', function () {
     return gulp.src([
-        'app/*'
-        //'!app/*.html'
+        'app/*',
+        '!app/*.html'
     ], {
         dot: true
     }).pipe(gulp.dest('dist'))
@@ -74,10 +74,27 @@ gulp.task('styles', function() {
         .pipe(gulpPlugins.size({title: 'styles'}));
 });
 
+// Scan your HTML for assets & optimize them
+gulp.task('html', function() {
+    var assets = gulpPlugins.useref.assets({searchPath: '{tmp,app}'});
+
+    return gulp.src('app/**/*.html')
+        .pipe(assets)
+        // Concatenate and minify JavaScript
+        .pipe(gulpPlugins.if('*.js', gulpPlugins.uglify({preserveComments: 'some'})))
+        .pipe(assets.restore())
+        .pipe(gulpPlugins.useref())
+        // Minify any HTML
+        .pipe(gulpPlugins.if('*.html', gulpPlugins.minifyHtml()))
+        // Output files
+        .pipe(gulp.dest('dist'))
+        .pipe(gulpPlugins.size({title: 'html'}));
+});
+
 // Clean output directory
 gulp.task('clean', del.bind(null, ['tmp', 'dist'], {dot: true}));
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-    runSequence('styles', ['images', 'fonts', 'copy'], cb);
+    runSequence('styles', ['html', 'images', 'fonts', 'copy'], cb);
 });

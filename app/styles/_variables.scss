@@ -3,6 +3,8 @@ $small: 480px;
 
 $fonts: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 $backgroundColor: #fff;
+$headerBackgroundColor: #4285f4;
+$navigationContainerBackgroundColor: #3367D6;
 
 // Mixins
 @mixin media-query($media-query) {

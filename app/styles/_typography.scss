@@ -1,3 +1,18 @@
+// Just normalizing text
+// Recommend using padding instead of margin
+h1, h2, h3, h4, h5, p {
+  margin: 0;
+}
+
+.xxlarge,
+h1 {
+  font-size: 68px;
+  font-weight: 300;
+  line-height: 1.1471em; /* 78px */
+  padding-top: 0.3824em;
+  padding-bottom: 0;
+}
+
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;

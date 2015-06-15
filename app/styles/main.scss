@@ -11,15 +11,16 @@ html, body {
 
 body {
   position: relative;
-  font-family: $fonts;
+  font-family: $font-family-base;
   font-weight: 300;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
   font-size: 19px;
-  background-color: $backgroundColor;
+  background-color: $body-background;
   box-sizing: border-box;
   min-height: 100%;
+  color: $text-color;
 }
 
 body.open {
@@ -32,7 +33,7 @@ body.open {
   position: fixed;
   top: 0;
   left: 0;
-  background-color: $headerBackgroundColor;
+  background-color: $header-background-color;
   overflow: hidden;
   z-index: 1;
 
@@ -115,7 +116,7 @@ body.open {
   bottom: 0;
   width: 250px;
   height: 100%;
-  background-color: $navigationContainerBackgroundColor;
+  background-color: $navigation-background-color;
   color: #fefefe;
   -webkit-transform: translate(-250px, 0);
   transform: translate(-250px, 0);
@@ -209,7 +210,7 @@ main {
     max-width: 864px;
     padding: 0 16px;
     box-sizing: border-box;
-    background-color: $headerBackgroundColor;
+    background-color: $header-background-color;
   }
 
   .header-bar::after {

@@ -1,10 +1,22 @@
 // Breakpoints
 $small: 480px;
 
-$fonts: 'Roboto Condensed', Helvetica, Arial, sans-serif;
-$backgroundColor: #fff;
-$headerBackgroundColor: #4285f4;
-$navigationContainerBackgroundColor: #3367D6;
+// Colors
+$color-blue-primary: #3372df;
+$color-blue-secondary: lighten($color-blue-primary, 10%);
+
+$color-gray-base: #000;
+$color-gray-dark: lighten($color-gray-base, 12.5%);
+
+$text-color: $color-gray-dark;
+
+$body-background: #fff;
+$header-background-color: $color-blue-primary;
+$navigation-background-color: $color-blue-secondary;
+
+// Fonts and Font Sizes
+$font-family-base: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+$font-size-base: 16px;
 
 // Mixins
 @mixin media-query($media-query) {

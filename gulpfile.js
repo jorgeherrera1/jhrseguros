@@ -3,7 +3,9 @@
 var gulp = require('gulp'),
     gulpPlugins = require('gulp-load-plugins')(),
     del = require('del'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload;
 
 var AUTOPREFIXER_BROWSERS = [
     'ie >= 10',
@@ -61,7 +63,6 @@ gulp.task('styles', function() {
     return gulp.src([
         'app/styles/*.scss'])
         .pipe(gulpPlugins.sourcemaps.init())
-        .pipe(gulpPlugins.changed('tmp/styles', {extension: '.css'}))
         .pipe(gulpPlugins.sass({
             precision: 10,
             onError: console.error.bind(console, 'Sass error:')
@@ -69,7 +70,8 @@ gulp.task('styles', function() {
         .pipe(gulpPlugins.autoprefixer({browsers: AUTOPREFIXER_BROWSERS}))
         .pipe(gulpPlugins.sourcemaps.write())
         .pipe(gulp.dest('tmp/styles'))
-        .pipe(gulpPlugins.csso())
+        // Concatenate and minify styles
+        .pipe(gulpPlugins.if('*.css', gulpPlugins.csso()))
         .pipe(gulp.dest('dist/styles'))
         .pipe(gulpPlugins.size({title: 'styles'}));
 });
@@ -93,6 +95,35 @@ gulp.task('html', function() {
 
 // Clean output directory
 gulp.task('clean', del.bind(null, ['tmp', 'dist'], {dot: true}));
+
+// Watch files for changes & reload
+gulp.task('serve', ['styles'], function () {
+    browserSync({
+        notify: false,
+        // Customize the BrowserSync console logging prefix
+        logPrefix: 'JHR Seguros',
+        server: ['tmp', 'app'],
+        port: 8000
+    });
+
+    gulp.watch(['app/**/*.html'], reload);
+    gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
+    gulp.watch(['app/images/**/*'], reload);
+});
+
+// Build and serve the output from the dist build
+gulp.task('serve:dist', ['default'], function () {
+    browserSync({
+        notify: false,
+        logPrefix: 'JHR Seguros',
+        // Run as an https by uncommenting 'https: true'
+        // Note: this uses an unsigned certificate which on first access
+        //       will present a certificate warning in the browser.
+        // https: true,
+        server: 'dist',
+        port: 9000
+    });
+});
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {

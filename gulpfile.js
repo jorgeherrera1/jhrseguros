@@ -20,13 +20,18 @@ var AUTOPREFIXER_BROWSERS = [
 ];
 
 // copy normalize.css and rename to sass
-gulp.task('css-to-sass', function() {
-    return gulp.src(['bower_components/normalize.css/normalize.css'])
+gulp.task('copy-normalize-as-sass', function() {
+    return gulp.src('bower_components/normalize.css/normalize.css')
         .pipe(gulpPlugins.rename(function(file) {
             file.basename = '_' + file.basename;
             file.extname = '.scss';
         }))
         .pipe(gulp.dest('app/styles'));
+});
+
+gulp.task('copy-font-awesome', function() {
+    return gulp.src('bower_components/font-awesome/fonts/*')
+        .pipe(gulp.dest('app/fonts'));
 });
 
 // Optimize images

@@ -18,6 +18,9 @@ $navigation-background-color: $color-blue-secondary;
 $font-family-base: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
 
+// Font Awesome
+$fa-font-path: "../fonts";
+
 // Mixins
 @mixin media-query($media-query) {
   @if $media-query == small {

@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "postinstall": "gulp css-to-sass"
+    "postinstall": "gulp copy-normalize-as-sass copy-font-awesome"
   }
 }

@@ -17,19 +17,10 @@ $navigation-background-color: $color-blue-secondary;
 // Fonts and Font Sizes
 $font-family-base: 'Roboto Condensed', Helvetica, Arial, sans-serif;
 $font-size-base: 16px;
+$font-size-small: ceil(($font-size-base * 0.85));
+$line-height: 26px;
 
 // Font Awesome
 $fa-font-path: "../fonts";
-
-// Mixins
-@mixin media-query($media-query) {
-  @if $media-query == small {
-    @media only screen and (max-width: $small) { @content; }
-  }
-
-  @if $media-query == large {
-    @media only screen and (min-width: $small + 1) { @content; }
-  }
-}
-
-@mixin large { @include media-query(large) { @content }; }
+$icon-phone: "\f095";
+$icon-link-right-arrow: "\f054";

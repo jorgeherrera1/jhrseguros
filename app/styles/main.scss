@@ -1,6 +1,8 @@
 @import "variables";
+@import "mixins";
 @import "normalize";
 @import "typography";
+@import "links";
 @import "../../bower_components/font-awesome/scss/font-awesome";
 
 html, body {
@@ -104,6 +106,27 @@ body.open {
   margin: 0 auto;
 }
 
+.header-bar-actions {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  z-index: 2;
+
+  .link-call {
+    &::before {
+      font-size: 36px;
+    }
+
+    .link-call-text {
+      display: none;
+    }
+  }
+}
+
 .header-bar.open,
 .header-bar.open ~ main {
   -webkit-transform: translate(250px, 0);
@@ -196,6 +219,20 @@ main {
       padding: 0;
       line-height: 130px;
       font-size: 46px;
+    }
+  }
+
+  .header-bar-actions {
+    float: right;
+
+    .link-call {
+      &::before {
+        font-size: 18px;
+      }
+
+      .link-call-text {
+        display: inline-block;
+      }
     }
   }
 

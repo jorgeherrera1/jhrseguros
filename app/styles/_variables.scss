@@ -1,6 +1,12 @@
 // Breakpoints
 $small: 480px;
 
+// Grid
+$large-container: 864px;
+$large-column-count: 4;
+$large-gutter-width: 3%;
+$large-column-width: (100% - ($large-gutter-width * ($large-column-count - 1))) / $large-column-count;
+
 // Colors
 $color-blue-primary: #3372df;
 $color-blue-secondary: lighten($color-blue-primary, 10%);
@@ -13,6 +19,11 @@ $text-color: $color-gray-dark;
 $body-background: #fff;
 $header-background-color: $color-blue-primary;
 $navigation-background-color: $color-blue-secondary;
+
+$color-autos: #003366;
+$color-gastos-medicos: #ff7f00;
+$color-vida: #cf423a;
+$color-casa: #2c8566;
 
 // Fonts and Font Sizes
 $font-family-base: 'Roboto Condensed', Helvetica, Arial, sans-serif;

@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
 @import "normalize";
+@import "grid";
 @import "typography";
 @import "links";
 @import "../../bower_components/font-awesome/scss/font-awesome";
@@ -207,6 +208,22 @@ main {
   /* Height of the header */
   padding: 60px 16px 16px 16px;
   min-height: 100%;
+}
+
+.autos {
+  color: $color-autos;
+}
+
+.gastos-medicos {
+  color: $color-gastos-medicos;
+}
+
+.vida {
+  color: $color-vida;
+}
+
+.casa {
+  color: $color-casa;
 }
 
 @include large {

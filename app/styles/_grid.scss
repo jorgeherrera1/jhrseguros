@@ -1,0 +1,21 @@
+.container {
+  @include container(true);
+}
+
+@include large {
+  // Generating grid classes for large view
+  @for $i from 1 through $large-column-count {
+    .col-#{$i} {
+      @include column-rule;
+      width: ($large-column-width * $i) + ($large-gutter-width * ($i + -1));
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @if $i == $large-column-count {
+        margin-right: 0;
+      }
+    }
+  }
+}

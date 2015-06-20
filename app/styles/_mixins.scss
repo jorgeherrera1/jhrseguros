@@ -32,3 +32,28 @@
     }
   }
 }
+
+@mixin container($is-relative: false) {
+  box-sizing: content-box;
+  display: flex;
+  flex-wrap: wrap;
+
+  @if $is-relative {
+    position: relative;
+  }
+
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include large {
+    max-width: $large-container;
+  }
+}
+
+// Grid rules
+@mixin column-rule() {
+  float: left;
+  margin-right: $large-gutter-width;
+}

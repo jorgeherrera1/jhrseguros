@@ -9,6 +9,7 @@
   }
 }
 
+@mixin small { @include media-query(small) { @content }; }
 @mixin large { @include media-query(large) { @content }; }
 
 // Mixin to create links
@@ -35,8 +36,6 @@
 
 @mixin container($is-relative: false) {
   box-sizing: content-box;
-  display: flex;
-  flex-wrap: wrap;
 
   @if $is-relative {
     position: relative;

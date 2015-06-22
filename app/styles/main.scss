@@ -3,6 +3,7 @@
 @import "normalize";
 @import "grid";
 @import "typography";
+@import "lists";
 @import "links";
 @import "../../bower_components/font-awesome/scss/font-awesome";
 
@@ -208,6 +209,17 @@ main {
   /* Height of the header */
   padding: 60px 16px 16px 16px;
   min-height: 100%;
+}
+
+.list-popular {
+  display: flex;
+  flex-wrap: wrap;
+
+  .list-popular-item {
+    a {
+      text-decoration: none;
+    }
+  }
 }
 
 .autos {

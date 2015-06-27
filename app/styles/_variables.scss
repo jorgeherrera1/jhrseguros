@@ -27,9 +27,13 @@ $color-casa: #2c8566;
 
 // Fonts and Font Sizes
 $font-family-base: 'Roboto Condensed', Helvetica, Arial, sans-serif;
-$font-size-base: 16px;
+$font-size-base: 15px;
 $font-size-small: ceil(($font-size-base * 0.85));
 $line-height: 26px;
+
+$font-size-h1: floor(($font-size-base * 2.6));
+$font-size-h2: floor(($font-size-base * 2.15));
+$font-size-h3: ceil(($font-size-base * 1.7));
 
 // Font Awesome
 $fa-font-path: "../fonts";

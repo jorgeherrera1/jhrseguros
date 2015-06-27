@@ -2,7 +2,12 @@
 // Recommend using padding instead of margin
 h1, h2, h3, h4, h5, p {
   margin: 0;
+  font-weight: 300;
 }
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
 
 @font-face {
   font-family: 'Roboto Condensed';

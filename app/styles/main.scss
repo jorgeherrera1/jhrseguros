@@ -3,7 +3,6 @@
 @import "normalize";
 @import "grid";
 @import "typography";
-@import "lists";
 @import "links";
 @import "../../bower_components/font-awesome/scss/font-awesome";
 
@@ -21,7 +20,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased;
-  font-size: 19px;
+  font-size: $font-size-base;
   background-color: $body-background;
   box-sizing: border-box;
   min-height: 100%;
@@ -216,26 +215,17 @@ main {
   flex-wrap: wrap;
 
   .list-popular-item {
-    a {
-      text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    .popular-item-logo {
+      width: 40%;
+    }
+    .popular-item-info {
+      width: 60%;
+      padding-top: 8px;
     }
   }
-}
-
-.autos {
-  color: $color-autos;
-}
-
-.gastos-medicos {
-  color: $color-gastos-medicos;
-}
-
-.vida {
-  color: $color-vida;
-}
-
-.casa {
-  color: $color-casa;
 }
 
 @include large {
@@ -326,6 +316,7 @@ main {
   }
 
   body {
+    font-size: 1.1em;
     overflow-y: scroll;
   }
 }

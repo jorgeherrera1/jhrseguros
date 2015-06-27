@@ -16,9 +16,14 @@ $color-gray-dark: lighten($color-gray-base, 12.5%);
 
 $text-color: $color-gray-dark;
 
-$body-background: #fff;
-$header-background-color: $color-blue-primary;
-$navigation-background-color: $color-blue-secondary;
+$color-body-background: #fff;
+$color-header-background: $color-blue-primary;
+$color-navigation-background: $color-blue-secondary;
+$color-navigation-text: #fefefe;
+$color-logo: #fefefe;
+$color-menu-button-hover: rgba(255, 255, 255, 0.1);
+$color-menu-button-focus: rgba(255, 255, 255, 0.2);
+$color-menu-button-active: rgba(255, 255, 255, 0.4);
 
 $color-autos: #003366;
 $color-gastos-medicos: #ff7f00;

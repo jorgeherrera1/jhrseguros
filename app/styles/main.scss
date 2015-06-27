@@ -217,6 +217,7 @@ main {
   .list-popular-item {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
 
     .popular-item-logo {
       width: 35%;

@@ -5,3 +5,19 @@ a {
 .link-call {
   @include link-create(#fefefe, $icon-phone);
 }
+
+.link-autos {
+  @include link-create($color-autos);
+}
+
+.link-gastos-medicos {
+  @include link-create($color-gastos-medicos);
+}
+
+.link-vida {
+  @include link-create($color-vida);
+}
+
+.link-casa {
+  @include link-create($color-casa);
+}

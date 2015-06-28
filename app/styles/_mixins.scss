@@ -28,10 +28,6 @@
   font-weight: 300;
   display: inline-block;
 
-  &:hover {
-    color: $color-gray-dark;
-  }
-
   @if $link-icon {
     text-decoration: none;
     &::before {

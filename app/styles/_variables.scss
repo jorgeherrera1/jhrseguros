@@ -1,11 +1,11 @@
 // Breakpoints
-$small: 480px;
+$medium: 600px;
+$large: 890px;
 
 // Grid
+$grid-columns: 12;
+$grid-gutter-width: 30px; // left and right
 $large-container: 864px;
-$large-column-count: 4;
-$large-gutter-width: 3%;
-$large-column-width: (100% - ($large-gutter-width * ($large-column-count - 1))) / $large-column-count;
 
 // Colors
 $color-blue-primary: #3372df;

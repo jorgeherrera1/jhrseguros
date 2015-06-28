@@ -2,20 +2,26 @@
   @include container(true);
 }
 
+@for $i from 1 through $grid-columns {
+  .col-small-#{$i} {
+    @include create-column($i);
+  }
+}
+
+@include medium-only {
+  // Generating grid classes for medium view
+  @for $i from 1 through $grid-columns {
+    .col-medium-#{$i} {
+      @include create-column($i);
+    }
+  }
+}
+
 @include large {
-  // Generating grid classes for large view
-  @for $i from 1 through $large-column-count {
-    .col-#{$i} {
-      @include column-rule;
-      width: ($large-column-width * $i) + ($large-gutter-width * ($i + -1));
-
-      &:last-child {
-        margin-right: 0;
-      }
-
-      @if $i == $large-column-count {
-        margin-right: 0;
-      }
+  // Generating grid classes for medium view
+  @for $i from 1 through $grid-columns {
+    .col-large-#{$i} {
+      @include create-column($i);
     }
   }
 }

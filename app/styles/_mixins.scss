@@ -1,15 +1,25 @@
 // Mixins
 @mixin media-query($media-query) {
   @if $media-query == small {
-    @media only screen and (max-width: $small) { @content; }
+    @media only screen and (max-width: $medium - 1) { @content; }
+  }
+
+  @if $media-query == medium {
+    @media only screen and (min-width: $medium) { @content; }
+  }
+
+  @if $media-query == medium-only {
+    @media only screen and (min-width: $medium) and (max-width: $large - 1) { @content; }
   }
 
   @if $media-query == large {
-    @media only screen and (min-width: $small + 1) { @content; }
+    @media only screen and (min-width: $large) { @content; }
   }
 }
 
 @mixin small { @include media-query(small) { @content }; }
+@mixin medium-only { @include media-query(medium-only) { @content }; }
+@mixin medium { @include media-query(medium) { @content }; }
 @mixin large { @include media-query(large) { @content }; }
 
 // Mixin to create links
@@ -35,7 +45,7 @@
 }
 
 @mixin container($is-relative: false) {
-  box-sizing: content-box;
+  box-sizing: border-box;
 
   @if $is-relative {
     position: relative;
@@ -51,8 +61,12 @@
   }
 }
 
-// Grid rules
-@mixin column-rule() {
+// Grid
+@mixin create-column($columns) {
+  position: relative;
   float: left;
-  margin-right: $large-gutter-width;
+  width: percentage(($columns / $grid-columns));
+  min-height: 1px;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
 }

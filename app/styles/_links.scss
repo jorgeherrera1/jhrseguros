@@ -1,3 +1,20 @@
+@mixin link-create($text-color, $link-icon: false) {
+  color: $text-color;
+  font-weight: 300;
+  display: inline-block;
+
+  @if $link-icon {
+    text-decoration: none;
+    &::before {
+      display: inline-block;
+      padding-right: 10px;
+      font-family: FontAwesome;
+      font-size: $font-size-small + 4;
+      content: $link-icon;
+    }
+  }
+}
+
 a {
   color: $color-blue-primary;
 }

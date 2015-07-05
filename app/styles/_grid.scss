@@ -1,27 +1,39 @@
-.container {
-  @include container(true);
+%common-column-styles {
+  position: relative;
+  float: left;
+  min-height: 1px;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
 }
 
-@for $i from 1 through $grid-columns {
-  .col-small-#{$i} {
-    @include create-column($i);
+@mixin column-width($column-number) {
+  width: percentage(($column-number / $grid-columns));
+}
+
+@each $viewport-size in small, medium, large {
+  @for $i from 1 through $grid-columns {
+    .col-#{$viewport-size}-#{$i} {
+      @extend %common-column-styles;
+
+      @if $viewport-size == small {
+        @include column-width($i);
+      }
+    }
   }
 }
 
 @include medium-only {
-  // Generating grid classes for medium view
   @for $i from 1 through $grid-columns {
     .col-medium-#{$i} {
-      @include create-column($i);
+      @include column-width($i);
     }
   }
 }
 
 @include large {
-  // Generating grid classes for medium view
   @for $i from 1 through $grid-columns {
     .col-large-#{$i} {
-      @include create-column($i);
+      @include column-width($i);
     }
   }
 }

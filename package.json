@@ -12,9 +12,22 @@
     "Daños"
   ],
   "author": "Jorge Herrera <jorge.herrera.cabrera@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jorgeherrera1/jhrseguros.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jorgeherrera1/jhrseguros/issues",
+    "email": "jorge.herrera.cabrera@gmail.com"
+  },
   "private": true,
   "engines": {
-    "node": ">=0.12"
+    "node": ">=0.10"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install && gulp"
   },
   "devDependencies": {
     "bower": "^1.4.1",
@@ -35,5 +48,8 @@
     "gulp-uglify": "^1.2.0",
     "gulp-useref": "^1.2.0",
     "run-sequence": "^1.1.0"
+  },
+  "dependencies": {
+    "express": "^4.13.1"
   }
 }

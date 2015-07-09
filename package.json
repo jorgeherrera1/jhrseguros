@@ -22,14 +22,15 @@
   },
   "private": true,
   "engines": {
-    "node": ">=0.10"
+    "node": ">=0.12"
   },
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install && gulp"
   },
-  "devDependencies": {
+  "dependencies": {
+    "express": "^4.13.1"
     "bower": "^1.4.1",
     "browser-sync": "^2.7.10",
     "del": "^1.2.0",
@@ -48,8 +49,5 @@
     "gulp-uglify": "^1.2.0",
     "gulp-useref": "^1.2.0",
     "run-sequence": "^1.1.0"
-  },
-  "dependencies": {
-    "express": "^4.13.1"
   }
 }

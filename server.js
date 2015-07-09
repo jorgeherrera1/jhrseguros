@@ -1,12 +1,11 @@
 'use strict';
 
 var express = require('express'),
-    serverPort = process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    serverIp = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1',
     app = express();
 
+app.set('port', (process.env.PORT || 8080));
 app.use(express.static('dist'));
 
-app.listen(serverPort, serverIp, function () {
-    console.log( "Listening on " + serverIp + ", port " + serverPort);
+app.listen(app.get('port'), function () {
+    console.log('JHRSeguros is running on port', app.get('port'));
 });

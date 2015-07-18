@@ -28,7 +28,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install && gulp"
+    "prestart": "bower install && gulp"
   },
   "dependencies": {
     "express": "^4.13.1",

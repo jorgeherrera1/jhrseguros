@@ -6,3 +6,7 @@ tmp
 app/styles/_normalize.scss
 app/fonts/fontawesome*
 app/fonts/FontAwesome*
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

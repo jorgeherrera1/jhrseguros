@@ -220,7 +220,28 @@ main {
   }
 }
 
+.contactanos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.divider {
+  width: 80%;
+  margin: 26px auto 25px;
+  border: 0;
+  height: 1px;
+  color: $color-blue-secondary;
+  background-color: $color-blue-secondary;
+}
+
 @include medium {
+
+  section {
+    margin-top: 45px;
+    margin-bottom: 45px;
+  }
+
   .header-bar {
     position: relative;
 
@@ -308,5 +329,9 @@ main {
     .list-popular-item {
       text-align: center;
     }
+  }
+
+  .divider {
+    width: 60%;
   }
 }
